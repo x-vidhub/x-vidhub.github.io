@@ -52,17 +52,7 @@ const finalLink = document.getElementById('finalLink');
 let step = 0;
 
 // Initial redirection link
-// const initialLink = "https://ln.run/yoAGw"; // Replace with the link you want to open in a popup
 
-document.addEventListener("DOMContentLoaded", () => {
-    if (step === 0) {
-        // Open the first link in a popup window
-        openPopupWindow("https://ln.run/J_Evd", 1500, 1000); // Popup with specified width and height
-        step++; // Move to the next step after redirection
-    } else {
-        startCountdown(); // Start the countdown for the next step
-    }
-});
 
 function openPopupWindow(url, width, height) {
     // Center the popup window on the screen
