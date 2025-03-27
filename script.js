@@ -52,7 +52,7 @@ const finalLink = document.getElementById('finalLink');
 let step = 0;
 
 // Initial redirection link
-const initialLink = "https://ln.run/yoAGw"; // Replace with the link you want to open in a popup
+// const initialLink = "https://ln.run/yoAGw"; // Replace with the link you want to open in a popup
 
 document.addEventListener("DOMContentLoaded", () => {
     if (step === 0) {
