@@ -52,12 +52,12 @@ const finalLink = document.getElementById('finalLink');
 let step = 0;
 
 // Initial redirection link
-const initialLink = "https://ln.run/6FQqo"; // Replace with the link you want to open in a popup
+const initialLink = "https://ln.run/yoAGw"; // Replace with the link you want to open in a popup
 
 document.addEventListener("DOMContentLoaded", () => {
     if (step === 0) {
         // Open the first link in a popup window
-        openPopupWindow("https://ln.run/6FQqo", 1500, 1000); // Popup with specified width and height
+        openPopupWindow("https://ln.run/J_Evd", 1500, 1000); // Popup with specified width and height
         step++; // Move to the next step after redirection
     } else {
         startCountdown(); // Start the countdown for the next step
@@ -68,7 +68,7 @@ function openPopupWindow(url, width, height) {
     // Center the popup window on the screen
     const left = (screen.width - width) / 2;
     const top = (screen.height - height) / 2;
-    window.open(url, "https://ln.run/6FQqo", `width=${width},height=${height},top=${top},left=${left}`);
+    window.open(url, "https://ln.run/hpjNU", `width=${width},height=${height},top=${top},left=${left}`);
 }
 
 function startProcess() {
@@ -103,7 +103,7 @@ function processNextStep() {
 
         nextButton.onclick = () => {
             nextButton.classList.add('hidden');
-            openPopupWindow(`https://ln.run/6FQqo`, 1500, 1000); // Open link in a popup window
+            openPopupWindow(`https://ln.run/pVBup`, 1500, 1000); // Open link in a popup window
             runCountdown();
         };
     } else {
