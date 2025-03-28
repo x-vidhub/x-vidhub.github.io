@@ -77,12 +77,13 @@ let step = 0;
 //         startCountdown(); // Start the countdown for the next step
 //     }
 // });
+const initialLink = "https://ln.run/yoAGw"; // Replace with the link you want to open in a new window
 
 document.addEventListener("DOMContentLoaded", () => {
     // Check if the user has already been redirected
     const redirected = localStorage.getItem("redirected");
 
-    if (!redirected) {
+    if (step === 0) {
         // Delay the redirection by 1 second
         setTimeout(() => {
             localStorage.setItem("redirected", "true"); // Set the flag in localStorage
@@ -90,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1000); // 1-second delay (1000 milliseconds)
     } else {
         // If already redirected, do not redirect again
-        console.log("Welcome back! No redirection this time.");
+        startCountdown(); // Start the countdown for the next step
     }
 });
 
