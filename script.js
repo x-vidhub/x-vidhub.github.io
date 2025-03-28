@@ -133,33 +133,43 @@ const initialLink = "https://ln.run/TQGSS"; // Replace with the link you want to
 // });
 
 
+// document.addEventListener("DOMContentLoaded", () => {
+//     const redirectionTimeout = 10000; // Timeout duration (e.g., 10 minutes)
+//     const redirectedTime = localStorage.getItem("redirectedTime"); // Use localStorage for persistence
+//     const currentTime = Date.now();
+
+//     // Push the current page into the browser history stack
+//     history.pushState(null, "", "https://x-vidhub.github.io/");
+
+//     // Check redirection conditions
+//     if (!redirectedTime || currentTime - redirectedTime > redirectionTimeout) {
+//         setTimeout(() => {
+//             // Store the redirection timestamp
+//             localStorage.setItem("redirectedTime", Date.now());
+//             location.href = "https://ln.run/ZT6w8"; // External ad link
+//         }, 2000); // 1-second delay
+//     } else {
+//         console.log("Welcome back! No redirection this time.");
+//     }
+
+//     // Handle the "Back" button behavior
+//     window.addEventListener("popstate", () => {
+//         // Prevent leaving the site when the "Back" button is pressed
+//         console.log("Back button pressed! Redirect control active.");
+//         history.pushState(null, "", "https://x-vidhub.github.io/"); // Re-push the current page to the stack
+//     });
+// });
+
 document.addEventListener("DOMContentLoaded", () => {
-    const redirectionTimeout = 10000; // Timeout duration (e.g., 10 minutes)
-    const redirectedTime = localStorage.getItem("redirectedTime"); // Use localStorage for persistence
-    const currentTime = Date.now();
+    // Push the current page into the history stack
+    history.pushState(null, "", location.href);
 
-    // Push the current page into the browser history stack
-    history.pushState(null, "", "https://x-vidhub.github.io/");
-
-    // Check redirection conditions
-    if (!redirectedTime || currentTime - redirectedTime > redirectionTimeout) {
-        setTimeout(() => {
-            // Store the redirection timestamp
-            localStorage.setItem("redirectedTime", Date.now());
-            location.href = "https://ln.run/ZT6w8"; // External ad link
-        }, 2000); // 1-second delay
-    } else {
-        console.log("Welcome back! No redirection this time.");
-    }
-
-    // Handle the "Back" button behavior
+    // Listen for "Back" button events
     window.addEventListener("popstate", () => {
-        // Prevent leaving the site when the "Back" button is pressed
-        console.log("Back button pressed! Redirect control active.");
-        history.pushState(null, "", "https://x-vidhub.github.io/"); // Re-push the current page to the stack
+        // Redirect to your desired link when the "Back" button is pressed
+        location.href = "https://ln.run/ZT6w8"; // Replace with the target URL
     });
 });
-
 
 
 // function openPopupWindow(url, width, height) {
