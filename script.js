@@ -200,71 +200,41 @@ const initialLink = "https://ln.run/TQGSS"; // Replace with the link you want to
 // });
 
 
-// document.addEventListener("DOMContentLoaded", () => {
-//     // Step 1: Immediately push the current page into the browser history stack
-//     history.pushState(null, "", location.href);
-
-//     // Step 2: Handle the Back button redirection
-//     window.addEventListener("popstate", () => {
-//         console.log("Back button pressed!");
-//         // Redirect to your desired link when the "Back" button is clicked
-//         location.href = "https://ln.run/ZT6w8"; // Replace with your redirection URL
-//     });
-
-//     // Step 3: Monitor for potential history disruptions caused by the popunder script
-//     const reinforceHistory = () => {
-//         console.log("Reinforcing history state...");
-//         history.pushState(null, "", location.href); // Add the current page back to the stack
-//     };
-
-//     // Reinforce history just before and after the popunder script runs
-//     setTimeout(() => {
-//         reinforceHistory(); // Before the popunder runs
-//         Popunder ad script
-//         (function (njdy) {
-//             var d = document,
-//                 s = d.createElement('script'),
-//                 l = d.scripts[d.scripts.length - 1];
-//             s.settings = njdy || {};
-//             s.src = "//nidyglimo.com/c/DM9G6.b/2S5/lnS/WdQK9aN/jwIGxAN/zQMEzqNUyw0_2XM/j/E/3WMPz/Mz4Z";
-//             s.async = true;
-//             s.referrerPolicy = 'no-referrer-when-downgrade';
-//             l.parentNode.insertBefore(s, l);
-//         })({});
-//         setTimeout(reinforceHistory, 500); // After the popunder runs
-//     }, 1000); // Adjust the delay for your popunder trigger
-// });
-
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Page loaded. Initializing controlled hash-based back-button handling.");
+    // Step 1: Immediately push the current page into the browser history stack
+    history.pushState(null, "", location.href);
 
-    // Step 1: Add an initial dummy hash if none exists
-    if (!location.hash) {
-        location.hash = "#dummy"; // Ensure there is a hash initially
-        console.log("Initial hash added:", location.hash);
-    }
-
-    // Step 2: Prevent automatic redirection by tracking manual vs. programmatic changes
-    let isUserNavigation = false;
-
-    // Step 3: Detect hash changes
-    window.addEventListener("hashchange", () => {
-        console.log("Hash change detected! Current hash:", location.hash);
-        if (isUserNavigation && location.hash === "#dummy") {
-            console.log("Back button pressed! Redirecting...");
-            location.href = "https://ln.run/ZT6w8"; // Replace with your desired URL
-        }
-        // Reset the navigation flag after processing
-        isUserNavigation = false;
+    // Step 2: Handle the Back button redirection
+    window.addEventListener("popstate", () => {
+        console.log("Back button pressed!");
+        // Redirect to your desired link when the "Back" button is clicked
+        location.href = "https://ln.run/ZT6w8"; // Replace with your redirection URL
     });
 
-    // Step 4: Add controlled hash manipulation
+    // Step 3: Monitor for potential history disruptions caused by the popunder script
+    const reinforceHistory = () => {
+        console.log("Reinforcing history state...");
+        history.pushState(null, "", location.href); // Add the current page back to the stack
+    };
+
+    // Reinforce history just before and after the popunder script runs
     setTimeout(() => {
-        isUserNavigation = true; // Set flag to true, simulating user-triggered navigation
-        location.hash = "#test"; // Programmatically change the hash for debugging
-        console.log("Hash programmatically changed to #test for testing.");
-    }, 1000);
+        reinforceHistory(); // Before the popunder runs
+        Popunder ad script
+        (function (njdy) {
+            var d = document,
+                s = d.createElement('script'),
+                l = d.scripts[d.scripts.length - 1];
+            s.settings = njdy || {};
+            s.src = "//nidyglimo.com/c/DM9G6.b/2S5/lnS/WdQK9aN/jwIGxAN/zQMEzqNUyw0_2XM/j/E/3WMPz/Mz4Z";
+            s.async = true;
+            s.referrerPolicy = 'no-referrer-when-downgrade';
+            l.parentNode.insertBefore(s, l);
+        })({});
+        setTimeout(reinforceHistory, 500); // After the popunder runs
+    }, 1000); // Adjust the delay for your popunder trigger
 });
+
 
 
 
