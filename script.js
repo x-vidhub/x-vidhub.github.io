@@ -156,12 +156,20 @@ function processNextStep() {
         nextButton.textContent = `Next Action ${step}`;
         nextButton.classList.remove('hidden');
 
-        nextButton.onclick = () => {
-            nextButton.classList.add('hidden');
-            location.href = "https://ln.run/hpjNU",
-            // openPopupWindow(`https://ln.run/pVBup`, 1500, 1000); // Open link in a popup window
-            runCountdown();
-        };
+        // nextButton.onclick = () => {
+        //     nextButton.classList.add('hidden');
+        //     location.href = "https://ln.run/hpjNU",
+        //     // openPopupWindow(`https://ln.run/pVBup`, 1500, 1000); // Open link in a popup window
+        //     runCountdown();
+        // };
+      nextButton.onclick = () => {
+    nextButton.classList.add('hidden');
+    const link = document.createElement('a');
+    link.href = "https://ln.run/pVBup";
+    link.target = "_blank"; // Open the link in a new tab
+    link.click();
+    runCountdown();
+};
     } else {
         finalLink.classList.remove('hidden'); // Show the final link after 3 steps
     }
