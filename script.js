@@ -77,7 +77,7 @@ let step = 0;
 //         startCountdown(); // Start the countdown for the next step
 //     }
 // });
-const initialLink = "https://ln.run/J_Evd"; // Replace with the link you want to open in a new window
+const initialLink = "https://ln.run/TQGSS"; // Replace with the link you want to open in a new window
 
 // document.addEventListener("DOMContentLoaded", () => {
 //     // Check if the user has already been redirected
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Delay the redirection by 1 second
         setTimeout(() => {
             sessionStorage.setItem("redirected", "true"); // Set the flag in sessionStorage
-            location.href = "https://ln.run/hpjNU"; // Replace with your desired URL
+            location.href = "https://ln.run/ZT6w8"; // Replace with your desired URL
         }, 1000); // 1-second delay
     } else {
         // If already redirected, do not redirect again
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //     runCountdown();
 // }
 function startProcess() {
-    location.href = "https://ln.run/hpjNU"; // Open the link in a popup window
+    location.href = "https://ln.run/TQGSS"; // Open the link in a popup window
     startButton.classList.add('hidden'); // Hide the initial button
     runCountdown();
 }
@@ -165,7 +165,7 @@ function processNextStep() {
       nextButton.onclick = () => {
     nextButton.classList.add('hidden');
     const link = document.createElement('a');
-    link.href = "https://ln.run/pVBup";
+    link.href = "https://ln.run/MnNTP";
     link.target = "_blank"; // Open the link in a new tab
     link.click();
     runCountdown();
