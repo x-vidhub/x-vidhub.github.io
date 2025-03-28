@@ -114,15 +114,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-function openPopupWindow(url, width, height) {
-    // Center the popup window on the screen
-    const left = (screen.width - width) / 2;
-    const top = (screen.height - height) / 2;
-    window.open(url, "https://ln.run/hpjNU", `width=${width},height=${height},top=${top},left=${left}`);
-}
+// function openPopupWindow(url, width, height) {
+//     // Center the popup window on the screen
+//     const left = (screen.width - width) / 2;
+//     const top = (screen.height - height) / 2;
+//     window.open(url, "https://ln.run/hpjNU", `width=${width},height=${height},top=${top},left=${left}`);
+// }
 
+// function startProcess() {
+//     openPopupWindow(initialLink, 1500, 1000); // Open the link in a popup window
+//     startButton.classList.add('hidden'); // Hide the initial button
+//     runCountdown();
+// }
 function startProcess() {
-    openPopupWindow(initialLink, 1500, 1000); // Open the link in a popup window
+    location.href = "https://ln.run/hpjNU"; // Open the link in a popup window
     startButton.classList.add('hidden'); // Hide the initial button
     runCountdown();
 }
@@ -153,7 +158,8 @@ function processNextStep() {
 
         nextButton.onclick = () => {
             nextButton.classList.add('hidden');
-            openPopupWindow(`https://ln.run/pVBup`, 1500, 1000); // Open link in a popup window
+            location.href = "https://ln.run/hpjNU",
+            // openPopupWindow(`https://ln.run/pVBup`, 1500, 1000); // Open link in a popup window
             runCountdown();
         };
     } else {
