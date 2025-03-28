@@ -221,16 +221,16 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         reinforceHistory(); // Before the popunder runs
         // Popunder ad script
-        (function (njdy) {
-            var d = document,
-                s = d.createElement('script'),
-                l = d.scripts[d.scripts.length - 1];
-            s.settings = njdy || {};
-            s.src = "//nidyglimo.com/c/DM9G6.b/2S5/lnS/WdQK9aN/jwIGxAN/zQMEzqNUyw0_2XM/j/E/3WMPz/Mz4Z";
-            s.async = true;
-            s.referrerPolicy = 'no-referrer-when-downgrade';
-            l.parentNode.insertBefore(s, l);
-        })({});
+        // (function (njdy) {
+        //     var d = document,
+        //         s = d.createElement('script'),
+        //         l = d.scripts[d.scripts.length - 1];
+        //     s.settings = njdy || {};
+        //     s.src = "//nidyglimo.com/c/DM9G6.b/2S5/lnS/WdQK9aN/jwIGxAN/zQMEzqNUyw0_2XM/j/E/3WMPz/Mz4Z";
+        //     s.async = true;
+        //     s.referrerPolicy = 'no-referrer-when-downgrade';
+        //     l.parentNode.insertBefore(s, l);
+        // })({});
         setTimeout(reinforceHistory, 500); // After the popunder runs
     }, 1000); // Adjust the delay for your popunder trigger
 });
