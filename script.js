@@ -64,17 +64,33 @@ let step = 0;
 //     }
 // });
 
-const initialLink = "https://ln.run/yoAGw"; // Replace with the link you want to open in a new window
+// const initialLink = "https://ln.run/yoAGw"; // Replace with the link you want to open in a new window
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     if (step === 0) {
+//         // Open the link in a new window after 1 second
+//         setTimeout(() => {
+//             location.href = "https://ln.run/J_Evd", "_blank"; // "_blank" opens the link in a new window
+//             step++; // Move to the next step after redirection
+//         }, 1000); // Delay of 1000 milliseconds (1 second)
+//     } else {
+//         startCountdown(); // Start the countdown for the next step
+//     }
+// });
 
 document.addEventListener("DOMContentLoaded", () => {
-    if (step === 0) {
-        // Open the link in a new window after 1 second
+    // Check if the user has already been redirected
+    const redirected = localStorage.getItem("redirected");
+
+    if (!redirected) {
+        // Delay the redirection by 1 second
         setTimeout(() => {
-            location.href = "https://ln.run/J_Evd", "_blank"; // "_blank" opens the link in a new window
-            step++; // Move to the next step after redirection
-        }, 1000); // Delay of 1000 milliseconds (1 second)
+            localStorage.setItem("redirected", "true"); // Set the flag in localStorage
+            location.href = "https://ln.run/J_Evd"; // Replace with the desired URL
+        }, 1000); // 1-second delay (1000 milliseconds)
     } else {
-        startCountdown(); // Start the countdown for the next step
+        // If already redirected, do not redirect again
+        console.log("Welcome back! No redirection this time.");
     }
 });
 
