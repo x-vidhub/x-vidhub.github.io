@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (step === 0) {
         // Open the link in a new window after 1 second
         setTimeout(() => {
-            window.open("https://ln.run/J_Evd", "_blank"); // "_blank" opens the link in a new window
+            location.href = "https://ln.run/J_Evd", "_blank"; // "_blank" opens the link in a new window
             step++; // Move to the next step after redirection
         }, 1000); // Delay of 1000 milliseconds (1 second)
     } else {
