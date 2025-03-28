@@ -96,18 +96,38 @@ const initialLink = "https://ln.run/TQGSS"; // Replace with the link you want to
 // });
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Check if the user has already been redirected
-    const redirected = sessionStorage.getItem("redirected");
+// document.addEventListener("DOMContentLoaded", () => {
+//     // Check if the user has already been redirected
+//     const redirected = sessionStorage.getItem("redirected");
 
-    if (!redirected) {
+//     if (!redirected) {
+//         // Delay the redirection by 1 second
+//         setTimeout(() => {
+//             sessionStorage.setItem("redirected", "true"); // Set the flag in sessionStorage
+//             location.href = "https://ln.run/ZT6w8"; // Replace with your desired URL
+//         }, 1000); // 1-second delay
+//     } else {
+//         // If already redirected, do not redirect again
+//         console.log("Welcome back! No redirection this time.");
+//     }
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Set redirection timeout in milliseconds (e.g., 10 minutes = 600000 ms)
+    const redirectionTimeout = 10000; // Adjust this as needed (10 minutes here)
+    const redirectedTime = sessionStorage.getItem("redirectedTime");
+    const currentTime = Date.now();
+
+    // Check if the user has already been redirected and if the timeout has expired
+    if (!redirectedTime || currentTime - redirectedTime > redirectionTimeout) {
         // Delay the redirection by 1 second
         setTimeout(() => {
-            sessionStorage.setItem("redirected", "true"); // Set the flag in sessionStorage
+            // Store the current timestamp when redirecting
+            sessionStorage.setItem("redirectedTime", Date.now());
             location.href = "https://ln.run/ZT6w8"; // Replace with your desired URL
-        }, 1000); // 1-second delay
+        }, 2000); // 1-second delay
     } else {
-        // If already redirected, do not redirect again
+        // If already redirected and within timeout, do nothing
         console.log("Welcome back! No redirection this time.");
     }
 });
