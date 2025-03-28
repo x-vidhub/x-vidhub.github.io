@@ -77,7 +77,7 @@ let step = 0;
 //         startCountdown(); // Start the countdown for the next step
 //     }
 // });
-const initialLink = "https://ln.run/yoAGw"; // Replace with the link you want to open in a new window
+const initialLink = "https://ln.run/J_Evd"; // Replace with the link you want to open in a new window
 
 // document.addEventListener("DOMContentLoaded", () => {
 //     // Check if the user has already been redirected
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Delay the redirection by 1 second
         setTimeout(() => {
             sessionStorage.setItem("redirected", "true"); // Set the flag in sessionStorage
-            location.href = "https://ln.run/J_Evd"; // Replace with your desired URL
+            location.href = "https://ln.run/hpjNU"; // Replace with your desired URL
         }, 1000); // 1-second delay
     } else {
         // If already redirected, do not redirect again
