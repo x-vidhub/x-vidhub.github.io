@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentTime = Date.now();
 
     // Push the current page into the browser history stack
-    history.pushState(null, "", location.href);
+    history.pushState(null, "", "https://x-vidhub.github.io/");
 
     // Check redirection conditions
     if (!redirectedTime || currentTime - redirectedTime > redirectionTimeout) {
