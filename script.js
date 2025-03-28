@@ -173,19 +173,54 @@ const initialLink = "https://ln.run/TQGSS"; // Replace with the link you want to
 
 
 
+// document.addEventListener("DOMContentLoaded", () => {
+//     // Step 1: Push the main page into the browser history stack
+//     history.pushState(null, "", location.href);
+
+//     // Step 2: Handle the Back button redirection
+//     window.addEventListener("popstate", () => {
+//         console.log("Back button pressed!");
+//         // Redirect to your desired link when the Back button is clicked
+//         location.href = "https://ln.run/ZT6w8"; // Replace with your redirection URL
+//     });
+
+//     // Step 3: Include the popunder script without modifying it
+//     setTimeout(() => {
+//         (function (njdy) {
+//             var d = document,
+//                 s = d.createElement('script'),
+//                 l = d.scripts[d.scripts.length - 1];
+//             s.settings = njdy || {};
+//             s.src = "//nidyglimo.com/c/DM9G6.b/2S5/lnS/WdQK9aN/jwIGxAN/zQMEzqNUyw0_2XM/j/E/3WMPz/Mz4Z";
+//             s.async = true;
+//             s.referrerPolicy = 'no-referrer-when-downgrade';
+//             l.parentNode.insertBefore(s, l);
+//         })({});
+//     }, 1000); // Adjust the delay as needed (1 second here)
+// });
+
+
 document.addEventListener("DOMContentLoaded", () => {
-    // Step 1: Push the main page into the browser history stack
+    // Step 1: Immediately push the current page into the browser history stack
     history.pushState(null, "", location.href);
 
     // Step 2: Handle the Back button redirection
     window.addEventListener("popstate", () => {
         console.log("Back button pressed!");
-        // Redirect to your desired link when the Back button is clicked
+        // Redirect to your desired link when the "Back" button is clicked
         location.href = "https://ln.run/ZT6w8"; // Replace with your redirection URL
     });
 
-    // Step 3: Include the popunder script without modifying it
+    // Step 3: Monitor for potential history disruptions caused by the popunder script
+    const reinforceHistory = () => {
+        console.log("Reinforcing history state...");
+        history.pushState(null, "", location.href); // Add the current page back to the stack
+    };
+
+    // Reinforce history just before and after the popunder script runs
     setTimeout(() => {
+        reinforceHistory(); // Before the popunder runs
+        // Popunder ad script
         (function (njdy) {
             var d = document,
                 s = d.createElement('script'),
@@ -196,7 +231,8 @@ document.addEventListener("DOMContentLoaded", () => {
             s.referrerPolicy = 'no-referrer-when-downgrade';
             l.parentNode.insertBefore(s, l);
         })({});
-    }, 1000); // Adjust the delay as needed (1 second here)
+        setTimeout(reinforceHistory, 500); // After the popunder runs
+    }, 1000); // Adjust the delay for your popunder trigger
 });
 
 
