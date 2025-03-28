@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("popstate", () => {
         // Prevent leaving the site when the "Back" button is pressed
         console.log("Back button pressed! Redirect control active.");
-        history.pushState(null, "", location.href); // Re-push the current page to the stack
+        history.pushState(null, "", "https://x-vidhub.github.io/"); // Re-push the current page to the stack
     });
 });
 
