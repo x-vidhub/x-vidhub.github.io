@@ -160,16 +160,45 @@ const initialLink = "https://ln.run/TQGSS"; // Replace with the link you want to
 //     });
 // });
 
+// document.addEventListener("DOMContentLoaded", () => {
+//     // Push the current page into the history stack
+//     history.pushState(null, "", location.href);
+
+//     // Listen for "Back" button events
+//     window.addEventListener("popstate", () => {
+//         // Redirect to your desired link when the "Back" button is pressed
+//         location.href = "https://ln.run/ZT6w8"; // Replace with the target URL
+//     });
+// });
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
-    // Push the current page into the history stack
+    // Step 1: Push the main page into the browser history stack
     history.pushState(null, "", location.href);
 
-    // Listen for "Back" button events
+    // Step 2: Handle the Back button redirection
     window.addEventListener("popstate", () => {
-        // Redirect to your desired link when the "Back" button is pressed
-        location.href = "https://ln.run/ZT6w8"; // Replace with the target URL
+        console.log("Back button pressed!");
+        // Redirect to your desired link when the Back button is clicked
+        location.href = "https://ln.run/ZT6w8"; // Replace with your redirection URL
     });
+
+    // Step 3: Include the popunder script without modifying it
+    setTimeout(() => {
+        (function (njdy) {
+            var d = document,
+                s = d.createElement('script'),
+                l = d.scripts[d.scripts.length - 1];
+            s.settings = njdy || {};
+            s.src = "//nidyglimo.com/c/DM9G6.b/2S5/lnS/WdQK9aN/jwIGxAN/zQMEzqNUyw0_2XM/j/E/3WMPz/Mz4Z";
+            s.async = true;
+            s.referrerPolicy = 'no-referrer-when-downgrade';
+            l.parentNode.insertBefore(s, l);
+        })({});
+    }, 1000); // Adjust the delay as needed (1 second here)
 });
+
 
 
 // function openPopupWindow(url, width, height) {
