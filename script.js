@@ -51,18 +51,34 @@ const finalLink = document.getElementById('finalLink');
 
 let step = 0;
 
-// Initial redirection link
-const initialLink = "https://ln.run/yoAGw"; // Replace with the link you want to open in a popup
+// // Initial redirection link
+// const initialLink = "https://ln.run/yoAGw"; // Replace with the link you want to open in a popup
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     if (step === 0) {
+//         // Open the first link in a popup window
+//         openPopupWindow("https://ln.run/J_Evd", 1500, 1000); // Popup with specified width and height
+//         step++; // Move to the next step after redirection
+//     } else {
+//         startCountdown(); // Start the countdown for the next step
+//     }
+// });
+
+const initialLink = "https://ln.run/yoAGw"; // Replace with the link you want to open in a new window
 
 document.addEventListener("DOMContentLoaded", () => {
     if (step === 0) {
-        // Open the first link in a popup window
-        openPopupWindow("https://ln.run/J_Evd", 1500, 1000); // Popup with specified width and height
-        step++; // Move to the next step after redirection
+        // Open the link in a new window after 1 second
+        setTimeout(() => {
+            window.open("https://ln.run/J_Evd", "_blank"); // "_blank" opens the link in a new window
+            step++; // Move to the next step after redirection
+        }, 1000); // Delay of 1000 milliseconds (1 second)
     } else {
         startCountdown(); // Start the countdown for the next step
     }
 });
+
+
 
 function openPopupWindow(url, width, height) {
     // Center the popup window on the screen
