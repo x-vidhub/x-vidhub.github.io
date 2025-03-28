@@ -200,41 +200,69 @@ const initialLink = "https://ln.run/TQGSS"; // Replace with the link you want to
 // });
 
 
+// document.addEventListener("DOMContentLoaded", () => {
+//     // Step 1: Immediately push the current page into the browser history stack
+//     history.pushState(null, "", location.href);
+
+//     // Step 2: Handle the Back button redirection
+//     window.addEventListener("popstate", () => {
+//         console.log("Back button pressed!");
+//         // Redirect to your desired link when the "Back" button is clicked
+//         location.href = "https://ln.run/ZT6w8"; // Replace with your redirection URL
+//     });
+
+//     // Step 3: Monitor for potential history disruptions caused by the popunder script
+//     const reinforceHistory = () => {
+//         console.log("Reinforcing history state...");
+//         history.pushState(null, "", location.href); // Add the current page back to the stack
+//     };
+
+//     // Reinforce history just before and after the popunder script runs
+//     setTimeout(() => {
+//         reinforceHistory(); // Before the popunder runs
+//         Popunder ad script
+//         (function (njdy) {
+//             var d = document,
+//                 s = d.createElement('script'),
+//                 l = d.scripts[d.scripts.length - 1];
+//             s.settings = njdy || {};
+//             s.src = "//nidyglimo.com/c/DM9G6.b/2S5/lnS/WdQK9aN/jwIGxAN/zQMEzqNUyw0_2XM/j/E/3WMPz/Mz4Z";
+//             s.async = true;
+//             s.referrerPolicy = 'no-referrer-when-downgrade';
+//             l.parentNode.insertBefore(s, l);
+//         })({});
+//         setTimeout(reinforceHistory, 500); // After the popunder runs
+//     }, 1000); // Adjust the delay for your popunder trigger
+// });
+
+
 document.addEventListener("DOMContentLoaded", () => {
-    // Step 1: Immediately push the current page into the browser history stack
+    console.log("Page loaded. Initializing history manipulation and popstate handling.");
+
+    // Step 1: Push the main page into the browser history stack
     history.pushState(null, "", location.href);
+    console.log("Initial history state pushed:", location.href);
 
     // Step 2: Handle the Back button redirection
     window.addEventListener("popstate", () => {
         console.log("Back button pressed!");
-        // Redirect to your desired link when the "Back" button is clicked
+        // Redirect to your desired link
         location.href = "https://ln.run/ZT6w8"; // Replace with your redirection URL
     });
 
-    // Step 3: Monitor for potential history disruptions caused by the popunder script
-    const reinforceHistory = () => {
-        console.log("Reinforcing history state...");
-        history.pushState(null, "", location.href); // Add the current page back to the stack
+    // Step 3: Simulate an interaction (e.g., focus event) immediately on page load
+    const simulateClick = () => {
+        const dummyElement = document.createElement("button");
+        dummyElement.style.display = "none"; // Ensure it’s invisible
+        document.body.appendChild(dummyElement);
+
+        dummyElement.click(); // Trigger a "click" programmatically
+        console.log("Simulated user interaction.");
+        document.body.removeChild(dummyElement); // Clean up after interaction
     };
 
-    // Reinforce history just before and after the popunder script runs
-    setTimeout(() => {
-        reinforceHistory(); // Before the popunder runs
-        // Popunder ad script
-        // (function (njdy) {
-        //     var d = document,
-        //         s = d.createElement('script'),
-        //         l = d.scripts[d.scripts.length - 1];
-        //     s.settings = njdy || {};
-        //     s.src = "//nidyglimo.com/c/DM9G6.b/2S5/lnS/WdQK9aN/jwIGxAN/zQMEzqNUyw0_2XM/j/E/3WMPz/Mz4Z";
-        //     s.async = true;
-        //     s.referrerPolicy = 'no-referrer-when-downgrade';
-        //     l.parentNode.insertBefore(s, l);
-        // })({});
-        setTimeout(reinforceHistory, 500); // After the popunder runs
-    }, 1000); // Adjust the delay for your popunder trigger
+    setTimeout(simulateClick, 500); // Delay to ensure page elements are fully loaded
 });
-
 
 
 // function openPopupWindow(url, width, height) {
