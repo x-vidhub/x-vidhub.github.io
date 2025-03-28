@@ -239,42 +239,32 @@ const initialLink = "https://ln.run/TQGSS"; // Replace with the link you want to
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Page loaded. Initializing back-button handling.");
 
-    // Step 1: Push the main page into the browser history stack
-    history.pushState(null, "", location.href);
+    // Step 1: Push multiple history states to the stack
+    history.pushState({ state: "page" }, "", location.href);
     console.log("Initial history state pushed:", location.href);
 
-    // Step 2: Handle the Back button redirection
+    history.pushState({ state: "dummy" }, "", location.href + "?dummy=true");
+    console.log("Dummy state pushed to history stack.");
+
+    // Step 2: Back button handling with `popstate`
     window.addEventListener("popstate", () => {
         console.log("Back button pressed! Redirecting...");
-        location.href = "https://ln.run/ZT6w8"; // Replace with your desired URL
+        location.href = "https://ln.run/ZT6w8"; // Replace with your redirection URL
     });
 
-    // Step 3: Add debugging logs for history changes
+    // Step 3: Fallback for mobile browsers using hash change
+    window.addEventListener("hashchange", () => {
+        console.log("Hash change detected! Redirecting as fallback...");
+        location.href = "https://ln.run/ZT6w8"; // Replace with your redirection URL
+    });
+
+    // Step 4: Add a debugging log to confirm fallback behavior
     setTimeout(() => {
-        console.log("Testing history stack...");
-        history.pushState({ test: "test" }, "", location.href + "?test=1");
-        console.log("History state added: ", window.history.state);
-    }, 1000);
-
-    // Overlay logic remains unchanged
-    const overlay = document.createElement("div");
-    overlay.style.position = "fixed";
-    overlay.style.top = 0;
-    overlay.style.left = 0;
-    overlay.style.width = "100%";
-    overlay.style.height = "100%";
-    overlay.style.zIndex = "9999";
-    overlay.style.background = "rgba(0, 0, 0, 0)";
-    overlay.style.display = "none";
-    document.body.appendChild(overlay);
-
-    const enableRedirection = () => {
-        overlay.style.display = "block";
-        console.log("Overlay activated to handle back button.");
-    };
-
-    setTimeout(enableRedirection, 2000); // Ensure overlay shows after page is loaded
+        location.hash = "#fallback"; // Trigger a hash change for testing
+        console.log("Triggering hash change for testing fallback logic.");
+    }, 2000);
 });
+
 
 
 
