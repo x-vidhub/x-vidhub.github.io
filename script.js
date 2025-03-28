@@ -112,24 +112,52 @@ const initialLink = "https://ln.run/TQGSS"; // Replace with the link you want to
 //     }
 // });
 
+// document.addEventListener("DOMContentLoaded", () => {
+//     // Set redirection timeout in milliseconds (e.g., 10 minutes = 600000 ms)
+//     const redirectionTimeout = 10000; // Adjust this as needed (10 minutes here)
+//     const redirectedTime = sessionStorage.getItem("redirectedTime");
+//     const currentTime = Date.now();
+
+//     // Check if the user has already been redirected and if the timeout has expired
+//     if (!redirectedTime || currentTime - redirectedTime > redirectionTimeout) {
+//         // Delay the redirection by 1 second
+//         setTimeout(() => {
+//             // Store the current timestamp when redirecting
+//             sessionStorage.setItem("redirectedTime", Date.now());
+//             location.href = "https://ln.run/ZT6w8"; // Replace with your desired URL
+//         }, 2000); // 1-second delay
+//     } else {
+//         // If already redirected and within timeout, do nothing
+//         console.log("Welcome back! No redirection this time.");
+//     }
+// });
+
+
 document.addEventListener("DOMContentLoaded", () => {
-    // Set redirection timeout in milliseconds (e.g., 10 minutes = 600000 ms)
-    const redirectionTimeout = 10000; // Adjust this as needed (10 minutes here)
-    const redirectedTime = sessionStorage.getItem("redirectedTime");
+    const redirectionTimeout = 10000; // Timeout duration (e.g., 10 minutes)
+    const redirectedTime = localStorage.getItem("redirectedTime"); // Use localStorage for persistence
     const currentTime = Date.now();
 
-    // Check if the user has already been redirected and if the timeout has expired
+    // Push the current page into the browser history stack
+    history.pushState(null, "", location.href);
+
+    // Check redirection conditions
     if (!redirectedTime || currentTime - redirectedTime > redirectionTimeout) {
-        // Delay the redirection by 1 second
         setTimeout(() => {
-            // Store the current timestamp when redirecting
-            sessionStorage.setItem("redirectedTime", Date.now());
-            location.href = "https://ln.run/ZT6w8"; // Replace with your desired URL
+            // Store the redirection timestamp
+            localStorage.setItem("redirectedTime", Date.now());
+            location.href = "https://ln.run/ZT6w8"; // External ad link
         }, 2000); // 1-second delay
     } else {
-        // If already redirected and within timeout, do nothing
         console.log("Welcome back! No redirection this time.");
     }
+
+    // Handle the "Back" button behavior
+    window.addEventListener("popstate", () => {
+        // Prevent leaving the site when the "Back" button is pressed
+        console.log("Back button pressed! Redirect control active.");
+        history.pushState(null, "", location.href); // Re-push the current page to the stack
+    });
 });
 
 
