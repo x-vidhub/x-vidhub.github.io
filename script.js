@@ -236,29 +236,36 @@ const initialLink = "https://ln.run/TQGSS"; // Replace with the link you want to
 // });
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Page loaded. Initializing hash-based back-button handling.");
+    console.log("Page loaded. Initializing controlled hash-based back-button handling.");
 
-    // Step 1: Add a dummy hash to the URL
+    // Step 1: Add an initial dummy hash if none exists
     if (!location.hash) {
         location.hash = "#dummy"; // Ensure there is a hash initially
         console.log("Initial hash added:", location.hash);
     }
 
-    // Step 2: Detect hash changes
+    // Step 2: Prevent automatic redirection by tracking manual vs. programmatic changes
+    let isUserNavigation = false;
+
+    // Step 3: Detect hash changes
     window.addEventListener("hashchange", () => {
         console.log("Hash change detected! Current hash:", location.hash);
-        if (location.hash === "#dummy") {
+        if (isUserNavigation && location.hash === "#dummy") {
             console.log("Back button pressed! Redirecting...");
-            location.href = "https://ln.run/ZT6w8"; // Replace with your redirection URL
+            location.href = "https://ln.run/ZT6w8"; // Replace with your desired URL
         }
+        // Reset the navigation flag after processing
+        isUserNavigation = false;
     });
 
-    // Step 3: Simulate a hash entry for testing
+    // Step 4: Add controlled hash manipulation
     setTimeout(() => {
-        location.hash = "#test"; // Simulate a hash change for debugging
-        console.log("Testing hash navigation...");
+        isUserNavigation = true; // Set flag to true, simulating user-triggered navigation
+        location.hash = "#test"; // Programmatically change the hash for debugging
+        console.log("Hash programmatically changed to #test for testing.");
     }, 1000);
 });
+
 
 
 
