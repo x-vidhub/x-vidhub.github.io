@@ -43,30 +43,45 @@ showSlide(currentSlide);
 // ===============================video player start =================================
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Page loaded. Initializing click handler for popunder.");
+    console.log("Page loaded. Initializing popunder and video handling.");
 
-    // Function to trigger the popunder
+    // Track whether the popunder has been triggered
+    let popunderTriggered = false;
+
+    // Function to trigger popunder
     const triggerPopunder = () => {
-        console.log("Popunder triggered!");
-        window.open("https://your-ad-link.com", "_blank"); // Replace with your ad URL
+        if (!popunderTriggered) {
+            popunderTriggered = true; // Ensure popunder triggers only once
+            console.log("Popunder triggered!");
+            window.open("https://your-ad-link.com", "_blank"); // Replace with your desired link
+        }
     };
 
-    // Global click handler for the entire page
+    // Global click handler for popunder
     document.addEventListener("click", (event) => {
         console.log("Global click detected!");
         triggerPopunder();
     });
 
-    // Special handling for the video element
+    // Video element handling
     const videoElement = document.querySelector("video");
     if (videoElement) {
         videoElement.addEventListener("click", (event) => {
             console.log("Click on video detected!");
-            event.stopPropagation(); // Prevent the video click event from reaching the global handler
-            triggerPopunder(); // Optional: Trigger popunder for video click
+            event.stopPropagation(); // Prevent the click event from propagating to the global handler
         });
     }
+
+    // Ensure the video stays playable and does not reset or loop due to popunder redirection
+    videoElement?.addEventListener("play", () => {
+        console.log("Video is playing!");
+    });
+
+    videoElement?.addEventListener("pause", () => {
+        console.log("Video is paused.");
+    });
 });
+
 
 
 // ===============================video player end =================================
