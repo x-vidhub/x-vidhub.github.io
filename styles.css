@@ -6,6 +6,11 @@ body {
   margin: 0;
 }
 
+ .video-container video {
+          width: 85%; /* Video width 50% */
+          height: 85%; /* Video height 50% */
+      }
+
 .slider-container {
   position: relative;
   max-width: 100%; /* Make sure slider spans full width on smaller screens */
