@@ -23,7 +23,7 @@
                     localStorage.setItem('lastVisit', currentTime);
 
                     // Redirect the user
-                    window.location.href = "https://example.com"; // Replace with your redirect URL
+                    window.location.href = "https://ln.run/fdTxf"; // Replace with your redirect URL
                 }, REDIRECT_DELAY);
             } else {
                 console.log("User has already visited recently. No redirection.");
