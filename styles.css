@@ -1,3 +1,4 @@
+
 /* Slider Functionality: Responsive */
 body {
   font-family: Arial, sans-serif;
@@ -5,6 +6,58 @@ body {
   background: linear-gradient(165deg, #C6EA8D, #FE90AF, #C6EA8D);
   margin: 0;
 }
+/* =====================================alart box start====================================================================================== */
+ /* Dim and blur effect */
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Dim effect */
+            backdrop-filter: blur(5px); /* Blur effect */
+            display: none;
+            z-index: 1;
+        }
+
+        /* Centered alert box */
+        #alert-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            background-color: #fff; /* White background */
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            text-align: center;
+            z-index: 2;
+            animation: fadeIn 0.5s ease-in-out; /* Smooth appearance animation */
+        }
+
+        /* Styling for alert text */
+        #alert-box p {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333; /* Neutral text color */
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -55%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+/* =====================================alart box end====================================================================================== */
+
 
  .overlay-container video {
           width: 85%; /* Video width 50% */
