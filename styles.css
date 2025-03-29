@@ -20,9 +20,9 @@ body {
             transform: translate(-50%, -50%);
             width: 300px;
             padding: 20px;
-            background-color: #ffffff; /* White background */
+            background-color: #7d7d7d; /* White background */
             border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
             text-align: center;
             z-index: 10; /* Ensure it's on top of everything */
             font-family: Arial, sans-serif;
@@ -33,7 +33,7 @@ body {
             margin: 0;
             font-size: 18px;
             font-weight: bold;
-            color: #ffffff;
+            color: #000000;
         }
 /* =====================================alart box end====================================================================================== */
 
