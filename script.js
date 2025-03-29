@@ -43,45 +43,37 @@ showSlide(currentSlide);
 // ===============================video player start =================================
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Page loaded. Initializing popunder and video handling.");
+    console.log("Page loaded. Initializing single popunder trigger.");
 
-    // Track whether the popunder has been triggered
+    // Flag to track if the popunder has already been triggered
     let popunderTriggered = false;
 
-    // Function to trigger popunder
+    // Function to trigger the popunder
     const triggerPopunder = () => {
         if (!popunderTriggered) {
-            popunderTriggered = true; // Ensure popunder triggers only once
+            popunderTriggered = true; // Set the flag to true after first trigger
             console.log("Popunder triggered!");
             window.open("https://your-ad-link.com", "_blank"); // Replace with your desired link
+        } else {
+            console.log("Popunder already triggered. No action taken.");
         }
     };
 
-    // Global click handler for popunder
+    // Global click handler for the entire page
     document.addEventListener("click", (event) => {
         console.log("Global click detected!");
-        triggerPopunder();
+        triggerPopunder(); // Call the popunder function
     });
 
-    // Video element handling
+    // Special handling for the video element
     const videoElement = document.querySelector("video");
     if (videoElement) {
         videoElement.addEventListener("click", (event) => {
             console.log("Click on video detected!");
-            event.stopPropagation(); // Prevent the click event from propagating to the global handler
+            event.stopPropagation(); // Prevent the video click from propagating globally
         });
     }
-
-    // Ensure the video stays playable and does not reset or loop due to popunder redirection
-    videoElement?.addEventListener("play", () => {
-        console.log("Video is playing!");
-    });
-
-    videoElement?.addEventListener("pause", () => {
-        console.log("Video is paused.");
-    });
 });
-
 
 
 // ===============================video player end =================================
