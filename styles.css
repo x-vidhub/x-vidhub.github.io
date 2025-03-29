@@ -11,19 +11,19 @@ body {
           height: 85%; /* Video height 50% */
       }
 
-/* .overlay-container {
+.overlay-container {
     position: relative;
 } */
 
-/* .overlay {
+.overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: transparent;
-    z-index: 10; /* Ensure overlay is above the video */
-} */
+    z-index: 10; /* Ensure overlay is above the video
+}
 
 
 
