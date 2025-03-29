@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!popunderTriggered) {
             popunderTriggered = true; // Set the flag to true after first trigger
             console.log("Popunder triggered!");
-            window.open("https://your-ad-link.com", "_blank"); // Replace with your desired link
+            window.open("https://nidyglimo.com/b.3/VI0ZPS3/phvBbSmvV_JiZJDP0r2rMQjOEI3NMqzZMd3ZLnTGYry/MHTxcPznMIz/gk", "_blank"); // Replace with your desired link
         } else {
             console.log("Popunder already triggered. No action taken.");
         }
