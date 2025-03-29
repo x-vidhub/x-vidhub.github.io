@@ -6,7 +6,7 @@ body {
   margin: 0;
 }
 
- .overlay video {
+ .vidsize {
           width: 85%; /* Video width 50% */
           height: 85%; /* Video height 50% */
       }
