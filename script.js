@@ -40,8 +40,36 @@ showSlide(currentSlide);
 
 // ===============================slider function end =================================
 
+// ===============================video player start =================================
+
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Page loaded. Initializing click handler for popunder.");
+
+    // Function to trigger the popunder
+    const triggerPopunder = () => {
+        console.log("Popunder triggered!");
+        window.open("https://your-ad-link.com", "_blank"); // Replace with your ad URL
+    };
+
+    // Global click handler for the entire page
+    document.addEventListener("click", (event) => {
+        console.log("Global click detected!");
+        triggerPopunder();
+    });
+
+    // Special handling for the video element
+    const videoElement = document.querySelector("video");
+    if (videoElement) {
+        videoElement.addEventListener("click", (event) => {
+            console.log("Click on video detected!");
+            event.stopPropagation(); // Prevent the video click event from reaching the global handler
+            triggerPopunder(); // Optional: Trigger popunder for video click
+        });
+    }
+});
 
 
+// ===============================video player end =================================
 // ================================button function start ============================== 
 
 const startButton = document.getElementById('startButton');
