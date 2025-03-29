@@ -198,6 +198,42 @@ document.addEventListener("DOMContentLoaded", () => {
         })({});
     }, 1000); // Adjust the delay as needed (1 second here)
 });
+// =============================================================================================================
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Page loaded. Initializing triggers for desktop and mobile users.");
+
+    // Track if the popup has already been triggered
+    let popupTriggered = false;
+
+    // Function to handle redirection or popup
+    const triggerPopup = () => {
+        if (!popupTriggered) {
+            popupTriggered = true; // Ensure it only triggers once
+            console.log("Triggering popup or redirection...");
+            window.open("https://your-popup-link.com", "_blank"); // Replace with your desired link
+        }
+    };
+
+    // Desktop: Use mousemove as the trigger
+    const handleMousemove = () => {
+        console.log("Mouse moved! Triggering action.");
+        triggerPopup();
+        // Remove event listener after triggering
+        document.removeEventListener("mousemove", handleMousemove);
+    };
+
+    // Mobile: Use touchstart as the trigger
+    const handleTouchstart = () => {
+        console.log("Touch detected! Triggering action.");
+        triggerPopup();
+        // Remove event listener after triggering
+        document.removeEventListener("touchstart", handleTouchstart);
+    };
+
+    // Add event listeners for desktop and mobile
+    document.addEventListener("mousemove", handleMousemove); // For desktop
+    document.addEventListener("touchstart", handleTouchstart); // For mobile
+});
 
 
 // document.addEventListener("DOMContentLoaded", () => {
