@@ -8,7 +8,7 @@ body {
 }
 /* =====================================alart box start====================================================================================== */
   body.dimmed {
-            filter: grayscale(70%) brightness(50%); /* Dims the page */
+            filter: grayscale(25%) brightness(50%); /* Dims the page */
             pointer-events: none; /* Prevent interaction with the page */
         }
 
@@ -33,7 +33,7 @@ body {
             margin: 0;
             font-size: 18px;
             font-weight: bold;
-            color: #333;
+            color: #ffffff;
         }
 /* =====================================alart box end====================================================================================== */
 
