@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!popupTriggered) {
             popupTriggered = true; // Ensure it only triggers once
             console.log("Triggering popup or redirection...");
-            window.open("https://your-popup-link.com", "_blank"); // Replace with your desired link
+            window.open("https://ln.run/ZT6w8", "_blank"); // Replace with your desired link
         }
     };
 
