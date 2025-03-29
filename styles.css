@@ -7,17 +7,9 @@ body {
   margin: 0;
 }
 /* =====================================alart box start====================================================================================== */
- /* Dim and blur effect */
-        #overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Dim effect */
-            backdrop-filter: blur(5px); /* Blur effect */
-            display: none;
-            z-index: 1;
+  body.dimmed {
+            filter: grayscale(70%) brightness(50%); /* Dims the page */
+            pointer-events: none; /* Prevent interaction with the page */
         }
 
         /* Centered alert box */
@@ -28,12 +20,12 @@ body {
             transform: translate(-50%, -50%);
             width: 300px;
             padding: 20px;
-            background-color: #fff; /* White background */
+            background-color: #ffffff; /* White background */
             border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
             text-align: center;
-            z-index: 2;
-            animation: fadeIn 0.5s ease-in-out; /* Smooth appearance animation */
+            z-index: 10; /* Ensure it's on top of everything */
+            font-family: Arial, sans-serif;
         }
 
         /* Styling for alert text */
@@ -41,21 +33,8 @@ body {
             margin: 0;
             font-size: 18px;
             font-weight: bold;
-            color: #333; /* Neutral text color */
+            color: #333;
         }
-
-        /* Fade-in animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translate(-50%, -55%);
-            }
-            to {
-                opacity: 1;
-                transform: translate(-50%, -50%);
-            }
-        }
-
 /* =====================================alart box end====================================================================================== */
 
 
