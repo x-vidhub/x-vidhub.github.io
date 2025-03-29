@@ -1,7 +1,7 @@
 // ===============================alart function start =================================================
 
    const REDIRECT_DELAY = 2000; // 2 seconds
-        const REVISIT_TIME = 3000; // 30 seconds
+        const REVISIT_TIME = 30000; // 30 seconds
 
         window.onload = () => {
             const lastVisit = localStorage.getItem('lastVisit');
