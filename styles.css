@@ -6,6 +6,21 @@ body {
   margin: 0;
 }
 
+.overlay-container {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 10; /* Ensure overlay is above the video */
+}
+
+
  .vidsize {
           width: 85%; /* Video width 50% */
           height: 85%; /* Video height 50% */
