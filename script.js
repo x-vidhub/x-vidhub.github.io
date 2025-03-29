@@ -1,6 +1,6 @@
-// ===============================slider function start =================================================
+// ===============================alart function start =================================================
 
-const REDIRECT_DELAY = 2000; // 2 seconds
+   const REDIRECT_DELAY = 2000; // 2 seconds
         const REVISIT_TIME = 3000; // 30 seconds
 
         window.onload = () => {
@@ -9,23 +9,19 @@ const REDIRECT_DELAY = 2000; // 2 seconds
 
             // Check if 30 seconds have passed since the last visit
             if (!lastVisit || currentTime - lastVisit > REVISIT_TIME) {
-                // Create overlay and alert box elements
-                const overlay = document.createElement('div');
-                overlay.id = 'overlay';
-                document.body.appendChild(overlay);
+                // Add dimmed effect to the page
+                document.body.classList.add('dimmed');
 
+                // Create and show alert box
                 const alertBox = document.createElement('div');
                 alertBox.id = 'alert-box';
                 alertBox.innerHTML = '<p>To see video visit again after redirection</p>';
                 document.body.appendChild(alertBox);
 
-                // Show overlay and alert box
-                overlay.style.display = 'block';
-
                 setTimeout(() => {
                     // Save current visit time
                     localStorage.setItem('lastVisit', currentTime);
-                    
+
                     // Redirect the user
                     window.location.href = "https://example.com"; // Replace with your redirect URL
                 }, REDIRECT_DELAY);
@@ -33,7 +29,7 @@ const REDIRECT_DELAY = 2000; // 2 seconds
                 console.log("User has already visited recently. No redirection.");
             }
         };
-// ===============================slider function start =================================================
+// ===============================alart function start =================================================
 
 // ===============================slider function start =================================================
 
