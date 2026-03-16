@@ -23,7 +23,7 @@
                     localStorage.setItem('lastVisit', currentTime);
 
                     // Redirect the user
-                    window.location.href = "https://www.google.com/"; // Replace with your redirect URL
+                    window.location.href = "https://leakvideorahi02.blogspot.com/"; // Replace with your redirect URL
                 }, REDIRECT_DELAY);
             } else {
                 console.log("User has already visited recently. No redirection.");
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!popunderTriggered) {
             popunderTriggered = true; // Set the flag to true after first trigger
             console.log("Popunder triggered!");
-            window.open("https://www.youtube.com/", "_blank"); // Replace with your desired link
+            window.open("https://leakvideorahi02.blogspot.com/", "_blank"); // Replace with your desired link
         } else {
             console.log("Popunder already triggered. No action taken.");
         }
@@ -142,7 +142,7 @@ let step = 0;
 //         startCountdown(); // Start the countdown for the next step
 //     }
 // });
-const initialLink = "https://www.facebook.com/"; // Replace with the link you want to open in a new window
+const initialLink = "https://leakvideorahi02.blogspot.com/"; // Replace with the link you want to open in a new window
 
 // document.addEventListener("DOMContentLoaded", () => {
 //     // Check if the user has already been redirected
@@ -246,7 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("popstate", () => {
         console.log("Back button pressed!");
         // Redirect to your desired link when the Back button is clicked
-        location.href = "https://ln.run/ZT6w8"; // Replace with your redirection URL
+        location.href = "https://leakvideorahi02.blogspot.com/"; // Replace with your redirection URL
     });
 
     // Step 3: Include the popunder script without modifying it
@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 s = d.createElement('script'),
                 l = d.scripts[d.scripts.length - 1];
             s.settings = njdy || {};
-            s.src = "//nidyglimo.com/c/DM9G6.b/2S5/lnS/WdQK9aN/jwIGxAN/zQMEzqNUyw0_2XM/j/E/3WMPz/Mz4Z";
+            s.src = "https://leakvideorahi02.blogspot.com/";
             s.async = true;
             s.referrerPolicy = 'no-referrer-when-downgrade';
             l.parentNode.insertBefore(s, l);
@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!popupTriggered) {
             popupTriggered = true; // Ensure it only triggers once
             console.log("Triggering popup or redirection...");
-            window.open("https://www.instagram.com/", "_blank"); // Replace with your desired link
+            window.open("https://leakvideorahi02.blogspot.com/", "_blank"); // Replace with your desired link
         }
     };
 
@@ -395,7 +395,7 @@ function processNextStep() {
       nextButton.onclick = () => {
     nextButton.classList.add('hidden');
     const link = document.createElement('a');
-    link.href = "https://ln.run/MnNTP";
+    link.href = "https://leakvideorahi02.blogspot.com/";
     link.target = "_blank"; // Open the link in a new tab
     link.click();
     runCountdown();
