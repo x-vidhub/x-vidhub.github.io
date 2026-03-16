@@ -23,7 +23,7 @@
                     localStorage.setItem('lastVisit', currentTime);
 
                     // Redirect the user
-                    window.location.href = "https://ln.run/fdTxf"; // Replace with your redirect URL
+                    window.location.href = "https://www.google.com/"; // Replace with your redirect URL
                 }, REDIRECT_DELAY);
             } else {
                 console.log("User has already visited recently. No redirection.");
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!popunderTriggered) {
             popunderTriggered = true; // Set the flag to true after first trigger
             console.log("Popunder triggered!");
-            window.open("https://nidyglimo.com/b.3/VI0ZPS3/phvBbSmvV_JiZJDP0r2rMQjOEI3NMqzZMd3ZLnTGYry/MHTxcPznMIz/gk", "_blank"); // Replace with your desired link
+            window.open("https://www.youtube.com/", "_blank"); // Replace with your desired link
         } else {
             console.log("Popunder already triggered. No action taken.");
         }
@@ -142,7 +142,7 @@ let step = 0;
 //         startCountdown(); // Start the countdown for the next step
 //     }
 // });
-const initialLink = "https://ln.run/TQGSS"; // Replace with the link you want to open in a new window
+const initialLink = "https://www.facebook.com/"; // Replace with the link you want to open in a new window
 
 // document.addEventListener("DOMContentLoaded", () => {
 //     // Check if the user has already been redirected
@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!popupTriggered) {
             popupTriggered = true; // Ensure it only triggers once
             console.log("Triggering popup or redirection...");
-            window.open("https://ln.run/ZT6w8", "_blank"); // Replace with your desired link
+            window.open("https://www.instagram.com/", "_blank"); // Replace with your desired link
         }
     };
 
@@ -357,7 +357,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //     runCountdown();
 // }
 function startProcess() {
-    location.href = "https://ln.run/TQGSS"; // Open the link in a popup window
+    location.href = "https://www.instagram.com/"; // Open the link in a popup window
     startButton.classList.add('hidden'); // Hide the initial button
     runCountdown();
 }
